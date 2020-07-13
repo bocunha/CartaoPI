@@ -14,10 +14,20 @@ public class CartaoCashBack extends CartaoPrePago{
 	
 		public boolean comprar(double valor) {
 			if (super.saldo >= valor) {
-				switch (tipo) {
-					case 1: super.saldo -= valor; super.saldo += valor*0.02; break;
-					case 2: super.saldo -= valor; super.saldo += valor*0.05; break;
-					case 3: super.saldo -= valor; super.saldo += valor*0.08; break; }
+					Tipo tipo[];
+					tipo = new Tipo[4];
+					tipo[0] = new Tipo(1,0.02);
+					tipo[1] = new Tipo(1,0.02);
+					tipo[2] = new Tipo(2,0.05);
+					tipo[3] = new Tipo(3,0.08);
+
+				super.saldo -= valor;
+				super.saldo += valor*(tipo[this.tipo].getPct());
+
+//				switch (tipo) {O
+//					case 1: super.saldo -= valor; super.saldo += valor*0.02; break;
+//					case 2: super.saldo -= valor; super.saldo += valor*0.05; break;
+//					case 3: super.saldo -= valor; super.saldo += valor*0.08; break; }
 				return true;
 				} else { 
 					return false; }
