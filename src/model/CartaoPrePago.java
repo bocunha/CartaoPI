@@ -7,20 +7,27 @@ public class CartaoPrePago {
 	protected int mesValidade;
 	protected double saldo;
 	
-	public void adicionarCredito(double valor) {
+	public void adicionarCredito(double valor) throws Exception {
+		if (valor <= 0 ) { throw new Exception("Digite um valor maior que 0"); }
 		saldo += valor;
 	}
 	
-	public CartaoPrePago(String numeroCartao, String nomeCartao, int anoValidade, int mesValidade) {
+	public CartaoPrePago(String numeroCartao, String nomeCartao, int anoValidade, int mesValidade) throws Exception {
 		super();
-		this.numeroCartao = numeroCartao;
+		if (numeroCartao.length() != 16) { throw new Exception("O numero do cartao deve conter 12 digitos"); }
+		if (nomeCartao.length() <= 4) { throw new Exception("O Nome deve ter pelo menos 4 catacteres"); }
+		if (anoValidade < 2020 ) { throw new Exception("O ano deve partir de 2020"); }
+		if (mesValidade < 01 || mesValidade > 12 ) { throw new Exception("O mes deve ser entre 1 e 12"); }
+		
+		this.numeroCartao = numeroCartao; 
 		this.nomeCartao = nomeCartao;
 		this.anoValidade = anoValidade;
 		this.mesValidade = mesValidade;
 		this.saldo = 0;
 	}
 	
-	public boolean comprar(double valor) {
+	public boolean comprar(double valor) throws Exception {
+		if (valor <= 0 ) { throw new Exception("Digite um valor maior que 0"); }
 		if (this.saldo >= valor) { 
 			this.saldo -= valor; 
 			return true;
