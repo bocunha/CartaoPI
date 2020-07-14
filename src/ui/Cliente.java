@@ -11,8 +11,7 @@ public class Cliente {
 
 	public static void main(String[] args) {
 	    
-		ArrayList<CartaoPrePago> cartoes;
-		cartoes = new ArrayList<CartaoPrePago>();
+		ArrayList<CartaoPrePago> cartoes = new ArrayList<CartaoPrePago>();
 		cartoes.add(new CartaoPrePago("1111122233334444","Professor Isidrao",2020,6));
 		cartoes.add(new CartaoCashBack("2222333344445555","Professor Pardal",2021,2,1));
 		cartoes.add(new CartaoCashBack("2222333344445555","Professor Roberto",2022,2,2));
