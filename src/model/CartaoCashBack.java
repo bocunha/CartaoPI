@@ -6,7 +6,7 @@ public class CartaoCashBack extends CartaoPrePago{
 		// Teste usando vetores diretos
 	String[] nomeTipos = {"", "BRONZE","SILVER","GOLD"};
 	Double[] pctTipos = {0.0, 0.02, 0.05, 0.08};
-			 //tipos	0,		1	,2		3;
+			 //tipos	 0  , 1   , 2   , 3    ;
 	
 	public CartaoCashBack(String numeroCartao, String nomeCartao, int anoValidade, int mesValidade, int tipo) {
 		super(numeroCartao, nomeCartao,anoValidade,mesValidade);
